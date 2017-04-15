@@ -18,13 +18,7 @@ import org.jhotdraw.draw.TextFigure;
 import org.jhotdraw.draw.TriangleFigure;
 import org.jhotdraw.util.ResourceBundleUtil;
 
-/**
- * This enumeration holds the figure types used in Design Pattern editor and their meta data 
- * required for creating them.
- * <p/>
- * @author Mohammad Shawahneh
- *
- */
+
 public enum FigureType {
 	RECTANGLE("createRectangle",RectangleFigure.class),
 	ROUNDED_RECTANGLE("createRoundRectangle", RoundRectangleFigure.class),
