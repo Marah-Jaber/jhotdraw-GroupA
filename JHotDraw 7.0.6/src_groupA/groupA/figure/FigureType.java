@@ -19,13 +19,12 @@ import org.jhotdraw.draw.TriangleFigure;
 import org.jhotdraw.util.ResourceBundleUtil;
 
 
+
 public enum FigureType {
-	RECTANGLE("createRectangle",RectangleFigure.class),
-	ROUNDED_RECTANGLE("createRoundRectangle", RoundRectangleFigure.class),
-	TRIANGLE("createTriangle", TriangleFigure.class),
 	TEXT("createText", TextFigure.class),
 	ELLIPSE("createEllipse", EllipseFigure.class),
-	DIAMOND("createDiamond", DiamondFigure.class)
+	LINE( "link",LineConnectionFigure.class),
+	createUseCase( "createUseCase",UseCaseFigure.class)
 	;
 	
 	
@@ -39,7 +38,6 @@ public enum FigureType {
 	/**
 	 * Design patterns demo custom resource bundle.
 	 */
-   // private static ResourceBundleUtil simpleEditorLabels = ResourceBundleUtil.getLAFBundle("org.simpleeditor.Labels");
     
     /**
      * Label text of the given figure, to be used for its creation icon and tooltip
@@ -85,9 +83,7 @@ public enum FigureType {
 	 * @return
 	 */
 	public ResourceBundleUtil getLabelBundleUtil() {
-	/*	if(ordinal() == FLOWCHAR.ordinal()){
-			return simpleEditorLabels;
-		} */
+	
 		return jhotdrawLabels;
 	}
 	

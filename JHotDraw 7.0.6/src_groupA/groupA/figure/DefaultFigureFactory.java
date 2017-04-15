@@ -22,7 +22,6 @@ public class DefaultFigureFactory implements FigureFactory {
 			System.err
 					.println("Unknown exception creating class return default Figure, rectangle figure");
 		}
-		//System.out.println("testttt");
 		return new RectangleFigure();
 	}
 

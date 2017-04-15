@@ -112,20 +112,20 @@ public class EditorApplicationModel extends DefaultApplicationModel {
 		for (FigureType figureType : FigureType.values() ) {
 			
 			Figure drawingFigure;
-		//	if(figureType == FigureType.FLOWCHAR){
-			// We need to show the decorated figure instead the line figure.
+			if(figureType == FigureType.LINE){
 			
-			
-		//		drawingFigure = new FlowChartFigure();
-		//		((FlowChartFigure)drawingFigure).registerFlowChartObserver(new FlowChartMessageObserver());
-		//	}else{
+				drawingFigure = figureFactory.getFigure(figureType);
+	        ToolBarButtonFactory.addToolTo(tb, editor, new ConnectionTool( (ConnectionFigure) drawingFigure, attributes), "createLink", labels);
+			}
+			else{
 				  drawingFigure = figureFactory.getFigure(figureType);
-		//	}
-				//  System.out.println(drawingFigure.toString());
+			
+				  System.out.println(figureType.getFigureLabel());
+				  System.out.println(figureType.getLabelBundleUtil());
 				  ToolBarButtonFactory.addToolTo(tb, editor, new CreationTool(
 					drawingFigure,attributes), figureType.getFigureLabel(), figureType
 					.getLabelBundleUtil());
-			
+			}
 			// ToolBarButtonFactory.addToolTo(tb, editor, new CreationTool(new RoundRectangleFigure(), attributes), "createRoundRectangle", drawLabels);
 			    
 		}
