@@ -10,6 +10,9 @@ import org.jhotdraw.draw.*;
 import org.jhotdraw.draw.action.*;
 import org.jhotdraw.samples.net.figures.*;
 import org.jhotdraw.util.*;
+import groupA.action.*;
+
+
 import groupA.figure.*;
 
 
@@ -86,7 +89,7 @@ public class EditorApplicationModel extends DefaultApplicationModel {
         ResourceBundleUtil labels = ResourceBundleUtil.getLAFBundle("org.jhotdraw.samples.net.Labels");
         ResourceBundleUtil drawLabels = ResourceBundleUtil.getLAFBundle("org.jhotdraw.draw.Labels");
         
-        ToolBarButtonFactory.addSelectionToolTo(tb, editor);
+        //ToolBarButtonFactory.addSelectionToolTo(tb, editor);
         tb.addSeparator();
         
         attributes = new HashMap<AttributeKey,Object>();
@@ -109,7 +112,20 @@ public class EditorApplicationModel extends DefaultApplicationModel {
       //  ToolBarButtonFactory.addToolTo(tb, editor, new CreationTool(new RoundRectangleFigure(), attributes), "createRoundRectangle", drawLabels);
     
 		// Add all the declared firures in FigureType enum
-		for (FigureType figureType : FigureType.values() ) {
+		
+        Collection<Action> menuActions = new LinkedList<Action>();
+		// Add separator
+		menuActions.add(null);
+
+		menuActions.add(new TreeDepthSortAction(editor));
+		menuActions.add(new TreeNodeSortAction(editor));
+		
+		ToolBarButtonFactory.addSelectionToolTo(tb, editor, ToolBarButtonFactory.createDrawingActions(editor),
+				menuActions);
+
+		tb.addSeparator();
+        
+        for (FigureType figureType : FigureType.values() ) {
 			
 			Figure drawingFigure;
 			if(figureType == FigureType.LINE){

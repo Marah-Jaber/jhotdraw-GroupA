@@ -24,7 +24,8 @@ public enum FigureType {
 	TEXT("createText", TextFigure.class),
 	ELLIPSE("createEllipse", EllipseFigure.class),
 	LINE( "link",LineConnectionFigure.class),
-	createUseCase( "createUseCase",UseCaseFigure.class)
+	createUseCase( "createUseCase",UseCaseFigure.class),
+	Node( "createNode",NodeFigure.class)
 	;
 	
 	
