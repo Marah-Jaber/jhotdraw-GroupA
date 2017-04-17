@@ -93,20 +93,20 @@ public class EditorApplicationModel extends DefaultApplicationModel {
         tb.addSeparator();
         
         attributes = new HashMap<AttributeKey,Object>();
-        attributes.put(AttributeKeys.FILL_COLOR, Color.white);
-        attributes.put(AttributeKeys.STROKE_COLOR, Color.black);
-        attributes.put(AttributeKeys.TEXT_COLOR, Color.black);
+     //   attributes.put(AttributeKeys.FILL_COLOR, Color.white);
+      //  attributes.put(AttributeKeys.STROKE_COLOR, Color.black);
+      //  attributes.put(AttributeKeys.TEXT_COLOR, Color.black);
      //   ToolBarButtonFactory.addToolTo(tb, editor, new TextTool(new NodeFigure(), attributes), "createNode", labels);
 
         attributes = new HashMap<AttributeKey,Object>();
-        attributes.put(AttributeKeys.STROKE_COLOR, new Color(0x000099));
+      //  attributes.put(AttributeKeys.STROKE_COLOR, new Color(0x000099));
      //   ToolBarButtonFactory.addToolTo(tb, editor, new ConnectionTool(new LineConnectionFigure(), attributes), "createLink", labels);
     
         
         attributes = new HashMap<AttributeKey,Object>();
-        attributes.put(AttributeKeys.FILL_COLOR, Color.white);
-        attributes.put(AttributeKeys.STROKE_COLOR, Color.black);
-        attributes.put(AttributeKeys.TEXT_COLOR, Color.black);
+        //attributes.put(AttributeKeys.FILL_COLOR, Color.red);
+        //attributes.put(AttributeKeys.STROKE_COLOR, Color.green);
+        //attributes.put(AttributeKeys.TEXT_COLOR, Color.black);
         
         //getFigure
       //  ToolBarButtonFactory.addToolTo(tb, editor, new CreationTool(new RoundRectangleFigure(), attributes), "createRoundRectangle", drawLabels);
@@ -131,13 +131,11 @@ public class EditorApplicationModel extends DefaultApplicationModel {
 			if(figureType == FigureType.LINE){
 			
 				drawingFigure = figureFactory.getFigure(figureType);
-	        ToolBarButtonFactory.addToolTo(tb, editor, new ConnectionTool( (ConnectionFigure) drawingFigure, attributes), "createLink", labels);
+	        ToolBarButtonFactory.addToolTo(tb, editor, new ConnectionTool( (ConnectionFigure) drawingFigure), "createLink", labels);
 			}
 			else{
 				  drawingFigure = figureFactory.getFigure(figureType);
 			
-				  System.out.println(figureType.getFigureLabel());
-				  System.out.println(figureType.getLabelBundleUtil());
 				  ToolBarButtonFactory.addToolTo(tb, editor, new CreationTool(
 					drawingFigure,attributes), figureType.getFigureLabel(), figureType
 					.getLabelBundleUtil());

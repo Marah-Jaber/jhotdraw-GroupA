@@ -10,9 +10,7 @@ import org.jhotdraw.draw.*;
 import org.jhotdraw.xml.*;
 
 public class DefaultFigureFactory implements FigureFactory {
-	/**
-	 * @see org.simpleeditor.figure.FigureFactory#getFigure(org.simpleeditor.figure.FigureType)
-	 */
+	
 	@Override
 	public Figure getFigure(FigureType type) {
 		try {

@@ -21,7 +21,7 @@ import org.jhotdraw.util.ResourceBundleUtil;
 
 
 public enum FigureType {
-	TEXT("createText", TextFigure.class),
+	TEXT("createText", Text_Figure.class),
 	ELLIPSE("createEllipse", EllipseFigure.class),
 	LINE( "link",LineConnectionFigure.class),
 	createUseCase( "createUseCase",UseCaseFigure.class),

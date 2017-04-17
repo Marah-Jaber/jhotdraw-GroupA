@@ -221,6 +221,8 @@ public class NodeFigure extends GraphicalCompositeFigure implements Figure{
     }
     
     public List<NodeFigure> getNodes() {
+    	System.out.println("getNodes");
+    	System.out.println(this.nodes);
     	return this.nodes;
     }
     
