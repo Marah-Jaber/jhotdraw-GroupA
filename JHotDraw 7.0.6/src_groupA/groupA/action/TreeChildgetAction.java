@@ -43,12 +43,8 @@ public class TreeChildgetAction extends getAction {
 		final DrawingView view = getView();
 
 		final Figure nodeFigure = view.getSelectedFigures().iterator().next();
-		System.out.println(nodeFigure);
 		((NodeFigure) nodeFigure).printNodeChild();
-
 	}
-
-	
 	
 	@Override
 	public String getId() {
