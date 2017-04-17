@@ -1,6 +1,3 @@
-/**
- * 
- */
 package groupA.sort;
 
 import java.util.Collections;
@@ -9,32 +6,36 @@ import java.util.List;
 
 import org.jhotdraw.draw.Figure;
 
+import groupA.figure.NodeFigure;
 
+/**
+ * This class is to implement the tree nodes based on their names.
+ * This is a part of the strategy design pattern, which represents the algorithm of sorting by name.
+ */
 public class NodeSortStrategy implements SortStrategy {
 
 	/**
-	 * 
+	 * This is to add a concrete implementation of the comparator interface, 
+	 * where each two nodes are compared using their names
 	 */
-	public NodeSortStrategy() {
-	}
-
 	public static Comparator<Figure> figureWidthComparator = new Comparator<Figure>() {
 
 		@Override
-		public int compare(Figure arg0, Figure arg1) {
-			// TODO Auto-generated method stub
-			return 0;
+		public int compare(Figure fig1, Figure fig2) {
+			String fig1Name = ((NodeFigure) fig1).getNodeName().toLowerCase();
+			String fig2Name = ((NodeFigure) fig2).getNodeName().toLowerCase();
+			System.out.println("CALL? " + fig1Name + " fig " + fig2Name);
+			// ascending order
+			return fig1Name.compareTo(fig2Name);
 		}
+	};
 
-
-	}; 
 	/**
-	 * @see org.simpleeditor.sort.SortStrategy#sortFigures(java.util.List)
+	 * Sort the tree nodes based on their names
 	 */
 	@Override
-	public  void sortTree(List<Figure> figureToSort) {
-		
-		Collections.sort(figureToSort, figureWidthComparator);
+	public void sortTree(List<Figure> figuresToSort) {
+		Collections.sort(figuresToSort, figureWidthComparator);
 	}
 
 }

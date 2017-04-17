@@ -3,6 +3,7 @@ package groupA.figure;
 import static org.jhotdraw.draw.AttributeKeys.FONT_BOLD;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -35,6 +36,7 @@ public class NodeFigure extends GraphicalCompositeFigure {
      */
     private TextFigure NodeTextFigure;
     private HashSet<DependencyFigure> dependencies;
+    private List<NodeFigure> nodes;
     
     static final long serialVersionUID = 6098176631854387694L;
 
@@ -72,6 +74,7 @@ public class NodeFigure extends GraphicalCompositeFigure {
         componentFigure.add(getNodeNameFigure());
         
         dependencies = new HashSet<DependencyFigure>();
+        nodes = new ArrayList<NodeFigure>();
         Insets2DDouble insets = new Insets2DDouble(10,15,30,40);
         LAYOUT_INSETS.set(componentFigure, insets);
         
@@ -161,6 +164,10 @@ public class NodeFigure extends GraphicalCompositeFigure {
         return Collections.unmodifiableSet(dependencies);
     }
     
+    public List<NodeFigure> getNodes() {
+    	return this.nodes;
+    }
+    
     public void addDependency(DependencyFigure f) {
         dependencies.add(f);
         //updateStartTime();
@@ -215,4 +222,8 @@ public class NodeFigure extends GraphicalCompositeFigure {
         }
         return false;
     }
+
+	public void addNode(NodeFigure ef) {
+		nodes.add(ef);
+	}
 }
