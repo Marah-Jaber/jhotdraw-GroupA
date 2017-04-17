@@ -5,6 +5,8 @@ import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.DrawingView;
 import org.jhotdraw.draw.Figure;
 
+import groupA.figure.NodeFigure;
+
 
 
 public class TreeChildgetAction extends getAction {
@@ -42,7 +44,7 @@ public class TreeChildgetAction extends getAction {
 
 		final Figure nodeFigure = view.getSelectedFigures().iterator().next();
 		System.out.println(nodeFigure);
-		//nodeFigure.printNodeChild();
+		((NodeFigure) nodeFigure).printNodeChild();
 
 	}
 

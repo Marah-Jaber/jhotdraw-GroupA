@@ -36,7 +36,7 @@ import org.jhotdraw.draw.VerticalLayouter;
 import org.jhotdraw.geom.Insets2DDouble;
 
 
-public class NodeFigure extends GraphicalCompositeFigure implements styleFigure{
+public class NodeFigure extends GraphicalCompositeFigure implements styleFigure, AggregateIterator{
 
 	private String  nodeName ;
      
@@ -243,5 +243,36 @@ public class NodeFigure extends GraphicalCompositeFigure implements styleFigure{
 
 	public void addNode(NodeFigure ef) {
 		nodes.add(ef);
+	}
+	
+	@Override
+	public Iterator getIterator() {
+		return new NodeFigureIterator();
+	}
+
+	private class NodeFigureIterator implements Iterator {
+
+		@Override
+		public boolean hasNext() {
+			return NodeFigure.this.nodes != null && NodeFigure.this.nodes.size() > 0;
+		}
+
+		@Override
+		public NodeFigure next() {
+
+			if (this.hasNext()) {
+				return NodeFigure.this.nodes.get(0);
+			}
+			return null;
+		}
+	}
+
+	public void printNodeChild() {
+
+		Iterator iter = this.getIterator();
+		if(iter.hasNext()) {
+			String name = (String) iter.next().getNodeName();
+			System.out.println("Name : " + name);
+		}
 	}
 }
