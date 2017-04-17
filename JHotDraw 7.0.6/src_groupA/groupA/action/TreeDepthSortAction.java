@@ -5,8 +5,7 @@ import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.DrawingView;
 import org.jhotdraw.draw.Figure;
 
-
-
+import groupA.figure.NodeFigure;
 import groupA.sort.DepthSortStrategy;
 
 
@@ -43,15 +42,17 @@ public class TreeDepthSortAction extends SortAction {
 
 		final LinkedList<Figure> figures = new LinkedList<Figure>(
 				view.getSelectedFigures());
+		for(int i = 0 ; i < figures.size() ; i++) {
+			Figure figure = figures.get(i);
+			if(!(figure instanceof NodeFigure)) {
+				figures.remove(figure);
+			}
+		}
 		getSortContext().sort(figures);
-		//groupFiguresAndApplySortByWidth(view, new GraphicalCompositeFigure(), figures);
-
 	}
-
-
 	
 	@Override
 	public String getId() {
-		return "edit.sort.byDepth";
+		return "Sort based on node depth";
 	}
 }

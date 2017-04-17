@@ -82,9 +82,9 @@ public class DependencyFigure extends LineConnectionFigure {
      * Override this method to handle this event.
      */
     protected void handleDisconnect(Figure start, Figure end) {
-        NodeFigure sf = (NodeFigure) start;
-        NodeFigure ef = (NodeFigure) end;
-        
+        NodeFigure sf = ((NodeFigure) start.clone());
+        NodeFigure ef = ((NodeFigure) end.clone());
+        sf.addNode(ef);
         sf.removeDependency(this);
         ef.removeDependency(this);
     }
@@ -96,9 +96,8 @@ public class DependencyFigure extends LineConnectionFigure {
     protected void handleConnect(Figure start, Figure end) {
         NodeFigure sf = (NodeFigure) start;
         NodeFigure ef = (NodeFigure) end;
-        
+        ef.addNode(sf);
         sf.addDependency(this);
-        sf.addNode(ef);
         ef.addDependency(this);
     }
     

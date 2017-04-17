@@ -35,6 +35,7 @@ public class TreeChildgetAction extends getAction {
 	private boolean canGet() {
 		return getView() != null
 				&& (getView().getSelectionCount() == 1)
+				// Only nodes can print the child name
 		&& (getView().getSelectedFigures().iterator().next().getClass().getSimpleName().equals("NodeFigure"));
 	}
 
@@ -48,6 +49,6 @@ public class TreeChildgetAction extends getAction {
 	
 	@Override
 	public String getId() {
-		return "edit.sort.byNode";
+		return "Print child node name";
 	}
 }

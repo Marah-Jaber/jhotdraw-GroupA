@@ -242,6 +242,7 @@ public class NodeFigure extends GraphicalCompositeFigure implements styleFigure,
     }
 
 	public void addNode(NodeFigure ef) {
+		System.out.println(ef.getNodeName());
 		nodes.add(ef);
 	}
 	

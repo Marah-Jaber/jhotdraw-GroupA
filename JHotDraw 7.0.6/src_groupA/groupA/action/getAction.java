@@ -21,7 +21,7 @@ public abstract class getAction extends AbstractSelectedAction {
 	/*	ResourceBundleUtil labels = ResourceBundleUtil
 				.getLAFBundle("org.jhotdraw.draw.Labels"); */
 		labels.configureAction(this, getId());
-		putValue(Actions.SUBMENU_KEY, "print Child");
+		putValue(Actions.SUBMENU_KEY, "Print Child Name");
 		updateEnabledState();
 	
 	}

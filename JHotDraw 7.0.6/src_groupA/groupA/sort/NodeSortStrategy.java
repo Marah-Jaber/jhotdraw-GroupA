@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.jhotdraw.draw.Figure;
 
 import groupA.figure.NodeFigure;
@@ -36,6 +38,12 @@ public class NodeSortStrategy implements SortStrategy {
 	@Override
 	public void sortTree(List<Figure> figuresToSort) {
 		Collections.sort(figuresToSort, figureWidthComparator);
+		// Print sorted figures
+		String sortedNodes = "";
+		for(Figure figure : figuresToSort) {
+			sortedNodes += ", " + ((NodeFigure) figure).getNodeName();
+		}
+		// Display the sorted nodes as a popup
+        JOptionPane.showMessageDialog(null, sortedNodes, "Sort by name: " + "Sorted Nodes", JOptionPane.INFORMATION_MESSAGE);
 	}
-
 }

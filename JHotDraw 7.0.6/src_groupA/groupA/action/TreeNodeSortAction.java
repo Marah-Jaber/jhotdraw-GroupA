@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.DrawingView;
 import org.jhotdraw.draw.Figure;
+
+import groupA.figure.NodeFigure;
 import groupA.sort.NodeSortStrategy;
 
 public class TreeNodeSortAction extends SortAction {
@@ -42,6 +44,13 @@ public class TreeNodeSortAction extends SortAction {
 		final LinkedList<Figure> figures = new LinkedList<Figure>(
 				view.getSelectedFigures());
 	//	groupFiguresAndApplySortByName(view, new GraphicalCompositeFigure(), figures);
+		for(int i = 0 ; i < figures.size() ; i++) {
+			Figure figure = figures.get(i);
+			if(!(figure instanceof NodeFigure)) {
+				figures.remove(figure);
+			}
+		}
+		getSortContext().sort(figures);
 
 	}
 
@@ -85,6 +94,6 @@ public class TreeNodeSortAction extends SortAction {
 	
 	@Override
 	public String getId() {
-		return "edit.sort.byNode";
+		return "Sort based on node name";
 	}
 }
