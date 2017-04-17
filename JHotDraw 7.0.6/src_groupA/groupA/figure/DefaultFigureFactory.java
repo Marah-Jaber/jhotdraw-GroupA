@@ -12,15 +12,14 @@ import org.jhotdraw.xml.*;
 public class DefaultFigureFactory implements FigureFactory {
 	
 	@Override
-	public Figure getFigure(FigureType type) {
+	public styleFigure getFigure(FigureType type) {
 		try {
-			//System.out.println("gettt figure");
-			return (Figure) type.getFigureClass().newInstance();
+			return (styleFigure) type.getFigureClass().newInstance();
 		} catch (Exception e2) {
 			System.err
 					.println("Unknown exception creating class return default Figure, rectangle figure");
 		}
-		return new RectangleFigure();
+		return new Text_Figure();
 	}
 
 

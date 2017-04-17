@@ -3,37 +3,32 @@
  */
 package groupA.action;
 
-import java.awt.event.ActionEvent;
-
-
 import org.jhotdraw.app.action.Actions;
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.action.AbstractSelectedAction;
 import org.jhotdraw.util.ResourceBundleUtil;
 
-import groupA.sort.SortStrategy;
-import groupA.sort.TreeSorting;
 
 
-public abstract class SortAction extends AbstractSelectedAction {
 
-	private  String id = "edit.sort";
+public abstract class getAction extends AbstractSelectedAction {
+
+	private  String id = "edit.get";
 	
-	private TreeSorting sortContext = new TreeSorting();
 	
-	public SortAction(DrawingEditor editor, SortStrategy strategy) {
+	public getAction(DrawingEditor editor) {
 		super(editor);
 	/*	ResourceBundleUtil labels = ResourceBundleUtil
 				.getLAFBundle("org.jhotdraw.draw.Labels"); */
 		labels.configureAction(this, getId());
-		putValue(Actions.SUBMENU_KEY, "Sort using");
+		putValue(Actions.SUBMENU_KEY, "print Child");
 		updateEnabledState();
-		getSortContext().setSortStrategy(strategy);
+	
 	}
 
 	protected void updateEnabledState() {
 		if (getView() != null) {
-			setEnabled(getView().getSelectedFigures().size() > 1);
+			setEnabled(getView().getSelectedFigures().size() == 1);
 		} else {
 			setEnabled(false);
 		}
@@ -43,7 +38,5 @@ public abstract class SortAction extends AbstractSelectedAction {
 		return id;
 	}
 	
-	public TreeSorting getSortContext() {
-		return sortContext;
-	}
+	
 }
