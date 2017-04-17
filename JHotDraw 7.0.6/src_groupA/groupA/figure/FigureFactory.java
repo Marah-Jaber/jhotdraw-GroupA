@@ -13,7 +13,7 @@ public interface FigureFactory {
 	 * @param type
 	 * @return
 	 */
-	Figure getFigure(FigureType type);
+	styleFigure getFigure(FigureType type);
 	
 
 }

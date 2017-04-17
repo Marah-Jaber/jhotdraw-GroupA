@@ -36,13 +36,7 @@ import org.jhotdraw.draw.VerticalLayouter;
 import org.jhotdraw.geom.Insets2DDouble;
 
 
- 
-
-/**
- * UseCaseFigue 
- *
- */
-public class NodeFigure extends GraphicalCompositeFigure implements Figure{
+public class NodeFigure extends GraphicalCompositeFigure implements styleFigure{
 
 	private String  nodeName ;
      
@@ -60,15 +54,7 @@ public class NodeFigure extends GraphicalCompositeFigure implements Figure{
      */    
     public NodeFigure() {
         this(new EllipseFigure());
-        HashMap<AttributeKey,Object> attributes = new HashMap<AttributeKey,Object>();
-        attributes.put(AttributeKeys.FILL_COLOR, Color.red);
-        //attributes.put(AttributeKeys.STROKE_COLOR, Color.green);
-       // attributes.put(AttributeKeys.TEXT_COLOR, Color.red);
-        //attributes.put(AttributeKeys.FONT_BOLD, Color.red);
-       this.setAttribute(STROKE_COLOR, Color.red);
-       this.getPresentationFigure().setAttribute(AttributeKeys.FILL_COLOR,new Color(0x000099));
-       //this.getChildren().setAttribute(AttributeKeys.FILL_COLOR,new Color(0x000099));
-       this.getPresentationFigure().setAttribute(AttributeKeys.STROKE_COLOR,new Color(0x000099));
+      
     }
 
     /**
@@ -91,50 +77,24 @@ public class NodeFigure extends GraphicalCompositeFigure implements Figure{
             }
         });
        
-        STROKE_WIDTH.set(this, 1d);
-        STROKE_COLOR.set(this, Color.RED);
-        STROKE_WIDTH.set(this, 1d);
+   
         GraphicalCompositeFigure componentFigure = new GraphicalCompositeFigure(new EllipseFigure());
         add(componentFigure);
         componentFigure.add(getNodeNameFigure());
-        
-        this.getPresentationFigure().setAttribute(AttributeKeys.FILL_COLOR,new Color(0x000099));
-        this.getPresentationFigure().setAttribute(AttributeKeys.STROKE_COLOR,new Color(0x000099));
         
         dependencies = new HashSet<DependencyFigure>();
         nodes = new ArrayList<NodeFigure>();
         Insets2DDouble insets = new Insets2DDouble(10,15,30,40);
         LAYOUT_INSETS.set(componentFigure, insets);
 
-        addStyle();
     }
     
     public void addStyle(){
     	
     	 getNodeNameFigure().setFontSize(11);
          getNodeNameFigure().setAttributeEnabled(FONT_BOLD, false);
-         getNodeNameFigure().setText("test");
-         this.getPresentationFigure().setAttribute(AttributeKeys.FILL_COLOR,new Color(0x000099));
-         this.getPresentationFigure().setAttribute(AttributeKeys.STROKE_COLOR,new Color(0x000099));
-        STROKE_WIDTH.set(this, 1d);
-        System.out.println(this.getPresentationFigure());
-        STROKE_COLOR.set(this.getPresentationFigure(), Color.RED);
-        STROKE_WIDTH.set(this, 1d);
-        
-        HashMap<AttributeKey,Object> attributes = new HashMap<AttributeKey,Object>();
-        attributes.put(AttributeKeys.FILL_COLOR, Color.red);
-        //attributes.put(AttributeKeys.STROKE_COLOR, Color.green);
-       // attributes.put(AttributeKeys.TEXT_COLOR, Color.red);
-        //attributes.put(AttributeKeys.FONT_BOLD, Color.red);
-       this.setAttribute(STROKE_COLOR, Color.red);
-       //this.setAttribute(key, newValue);
-        //FILL_COLOR.set(this, Color.LIGHT_GRAY);
-      /*  this.setAttributeEnabled(FONT_BOLD, true);
-        this.setAttributeEnabled(FONT_ITALIC, true);
-        attributes.put(AttributeKeys.FILL_COLOR, Color.white);
-        attributes.put(AttributeKeys.STROKE_COLOR, Color.black);
-        attributes.put(AttributeKeys.TEXT_COLOR, Color.black); */
-       
+         getNodeNameFigure().setText("Node");
+                      
     }
 
    

@@ -43,6 +43,7 @@ public class TreeDepthSortAction extends SortAction {
 
 		final LinkedList<Figure> figures = new LinkedList<Figure>(
 				view.getSelectedFigures());
+		getSortContext().sort(figures);
 		//groupFiguresAndApplySortByWidth(view, new GraphicalCompositeFigure(), figures);
 
 	}

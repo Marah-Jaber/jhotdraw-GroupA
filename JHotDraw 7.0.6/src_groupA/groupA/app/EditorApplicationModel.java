@@ -43,12 +43,13 @@ public class EditorApplicationModel extends DefaultApplicationModel {
     //private DefaultDrawingEditor editor;
 
    	private FigureFactory figureFactory;
-
+	private FigureMaker figureMaker;
    	
    	
     /** Creates a new instance. */
     public EditorApplicationModel() {
     	figureFactory = new DefaultFigureFactory();
+    	figureMaker = new FigureMaker();
     }
     
    
@@ -89,28 +90,14 @@ public class EditorApplicationModel extends DefaultApplicationModel {
         ResourceBundleUtil labels = ResourceBundleUtil.getLAFBundle("org.jhotdraw.samples.net.Labels");
         ResourceBundleUtil drawLabels = ResourceBundleUtil.getLAFBundle("org.jhotdraw.draw.Labels");
         
-        //ToolBarButtonFactory.addSelectionToolTo(tb, editor);
         tb.addSeparator();
         
         attributes = new HashMap<AttributeKey,Object>();
-     //   attributes.put(AttributeKeys.FILL_COLOR, Color.white);
-      //  attributes.put(AttributeKeys.STROKE_COLOR, Color.black);
-      //  attributes.put(AttributeKeys.TEXT_COLOR, Color.black);
-     //   ToolBarButtonFactory.addToolTo(tb, editor, new TextTool(new NodeFigure(), attributes), "createNode", labels);
-
-        attributes = new HashMap<AttributeKey,Object>();
-      //  attributes.put(AttributeKeys.STROKE_COLOR, new Color(0x000099));
-     //   ToolBarButtonFactory.addToolTo(tb, editor, new ConnectionTool(new LineConnectionFigure(), attributes), "createLink", labels);
     
+        attributes = new HashMap<AttributeKey,Object>();
         
         attributes = new HashMap<AttributeKey,Object>();
-        //attributes.put(AttributeKeys.FILL_COLOR, Color.red);
-        //attributes.put(AttributeKeys.STROKE_COLOR, Color.green);
-        //attributes.put(AttributeKeys.TEXT_COLOR, Color.black);
-        
-        //getFigure
-      //  ToolBarButtonFactory.addToolTo(tb, editor, new CreationTool(new RoundRectangleFigure(), attributes), "createRoundRectangle", drawLabels);
-    
+      
 		// Add all the declared firures in FigureType enum
 		
         Collection<Action> menuActions = new LinkedList<Action>();
@@ -119,7 +106,7 @@ public class EditorApplicationModel extends DefaultApplicationModel {
 
 		menuActions.add(new TreeDepthSortAction(editor));
 		menuActions.add(new TreeNodeSortAction(editor));
-		
+		menuActions.add(new TreeChildgetAction(editor));
 		ToolBarButtonFactory.addSelectionToolTo(tb, editor, ToolBarButtonFactory.createDrawingActions(editor),
 				menuActions);
 
@@ -127,21 +114,14 @@ public class EditorApplicationModel extends DefaultApplicationModel {
         
         for (FigureType figureType : FigureType.values() ) {
 			
-			Figure drawingFigure;
-			if(figureType == FigureType.LINE){
-			
-				drawingFigure = figureFactory.getFigure(figureType);
-	        ToolBarButtonFactory.addToolTo(tb, editor, new ConnectionTool( (ConnectionFigure) drawingFigure), "createLink", labels);
-			}
-			else{
-				  drawingFigure = figureFactory.getFigure(figureType);
+			styleFigure drawingFigure;
+			drawingFigure = figureMaker.addStyle(figureType);
 			
 				  ToolBarButtonFactory.addToolTo(tb, editor, new CreationTool(
 					drawingFigure,attributes), figureType.getFigureLabel(), figureType
 					.getLabelBundleUtil());
-			}
-			// ToolBarButtonFactory.addToolTo(tb, editor, new CreationTool(new RoundRectangleFigure(), attributes), "createRoundRectangle", drawLabels);
-			    
+			
+			   
 		}
         
     }
