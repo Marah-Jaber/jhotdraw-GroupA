@@ -13,6 +13,7 @@ import static org.jhotdraw.draw.AttributeKeys.TEXT_COLOR;
 import java.awt.Color;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -50,6 +51,7 @@ public class NodeFigure extends GraphicalCompositeFigure implements Figure{
      */
     private TextFigure NodeTextFigure;
     private HashSet<DependencyFigure> dependencies;
+    private List<NodeFigure> nodes;
     
     static final long serialVersionUID = 6098176631854387694L;
 
@@ -100,6 +102,7 @@ public class NodeFigure extends GraphicalCompositeFigure implements Figure{
         this.getPresentationFigure().setAttribute(AttributeKeys.STROKE_COLOR,new Color(0x000099));
         
         dependencies = new HashSet<DependencyFigure>();
+        nodes = new ArrayList<NodeFigure>();
         Insets2DDouble insets = new Insets2DDouble(10,15,30,40);
         LAYOUT_INSETS.set(componentFigure, insets);
 
@@ -217,6 +220,10 @@ public class NodeFigure extends GraphicalCompositeFigure implements Figure{
         return Collections.unmodifiableSet(dependencies);
     }
     
+    public List<NodeFigure> getNodes() {
+    	return this.nodes;
+    }
+    
     public void addDependency(DependencyFigure f) {
         dependencies.add(f);
         //updateStartTime();
@@ -271,4 +278,8 @@ public class NodeFigure extends GraphicalCompositeFigure implements Figure{
         }
         return false;
     }
+
+	public void addNode(NodeFigure ef) {
+		nodes.add(ef);
+	}
 }
