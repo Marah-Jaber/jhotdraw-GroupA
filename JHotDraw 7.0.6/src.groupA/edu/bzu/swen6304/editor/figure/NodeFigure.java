@@ -10,8 +10,14 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.swing.JOptionPane;
+
+import org.jhotdraw.draw.AttributeKey;
+import org.jhotdraw.draw.AttributedFigure;
 import org.jhotdraw.draw.ConnectionHandle;
 import org.jhotdraw.draw.EllipseFigure;
 import org.jhotdraw.draw.Figure;
@@ -34,14 +40,17 @@ public class NodeFigure extends GraphicalCompositeFigure implements styleFigure,
     private HashSet<DependencyFigure> dependencies;
     private List<NodeFigure> nodes;
     
+        private static AtomicInteger uniqueId=new AtomicInteger();
+    private int NodeCounter;
+    
+    
     static final long serialVersionUID = 6098176631854387694L;
 
-    /**
-     * Create a new instance of UseCaseFigure with a RectangleFigure as presentation figure
-     */    
+   
     public NodeFigure() {
+    	
         this(new EllipseFigure());
-      
+        
     }
 
     /**
@@ -51,10 +60,11 @@ public class NodeFigure extends GraphicalCompositeFigure implements styleFigure,
      */    
     public NodeFigure(Figure newPresentationFigure) {
         super(newPresentationFigure);
+        
         removeAllChildren();
         setLayouter(new VerticalLayouter());
         
-      
+      System.out.println("inside node figure");
         setNodeNameFigure(new TextFigure() {
             public void setText(String newText) {
                 super.setText(newText);
@@ -65,10 +75,12 @@ public class NodeFigure extends GraphicalCompositeFigure implements styleFigure,
         });
        
    
+        applyAttributes(getPresentationFigure());
+        
         GraphicalCompositeFigure componentFigure = new GraphicalCompositeFigure(new EllipseFigure());
         add(componentFigure);
         componentFigure.add(getNodeNameFigure());
-        
+        applyAttributes(this);
         dependencies = new HashSet<DependencyFigure>();
         nodes = new ArrayList<NodeFigure>();
         Insets2DDouble insets = new Insets2DDouble(10,15,30,40);
@@ -160,6 +172,7 @@ public class NodeFigure extends GraphicalCompositeFigure implements styleFigure,
 	}
 
 	public void setNodeName(String nodeName) {
+		
 		this.nodeName = nodeName;
 	}
 	
@@ -227,6 +240,13 @@ public class NodeFigure extends GraphicalCompositeFigure implements styleFigure,
         }
         return false;
     }
+    
+    private void applyAttributes(Figure f) {
+        Map<AttributeKey,Object> attr = ((AttributedFigure) getPresentationFigure()).getAttributes();
+        for (Map.Entry<AttributeKey, Object> entry : attr.entrySet()) {
+            f.setAttribute(entry.getKey(), entry.getValue());
+        }
+    }
 
 	public void addNode(NodeFigure ef) {
 		System.out.println(ef.getNodeName());
@@ -261,6 +281,8 @@ public class NodeFigure extends GraphicalCompositeFigure implements styleFigure,
 		if(iter.hasNext()) {
 			String name = (String) iter.next().getNodeName();
 			System.out.println("Name : " + name);
+			JOptionPane.showMessageDialog(null, name, "Print Child Name",
+					JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 }

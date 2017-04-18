@@ -11,7 +11,7 @@ public class DefaultFigureFactory implements FigureFactory {
 			return (styleFigure) type.getFigureClass().newInstance();
 		} catch (Exception e2) {
 			System.err
-					.println("Unknown exception creating class return default Figure, rectangle figure");
+					.println("Unknown exception creating class");
 		}
 		return new Text_Figure();
 	}

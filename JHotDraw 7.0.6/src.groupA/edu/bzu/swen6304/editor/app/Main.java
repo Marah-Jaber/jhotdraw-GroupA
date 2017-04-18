@@ -23,7 +23,7 @@ public class Main {
 	        
 	        
 	        EditorApplicationModel model = new EditorApplicationModel();
-	        model.setName("JHotDraw PlasmaDraw");
+	        model.setName("JHotDraw");
 	        model.setVersion("0.5");
 	        model.setCopyright("Copyright Group A.");
 	        model.setProjectClassName("edu.bzu.swen6304.editor.app.EditorProject");

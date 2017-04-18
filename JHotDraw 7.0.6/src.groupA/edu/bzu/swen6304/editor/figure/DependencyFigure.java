@@ -17,12 +17,7 @@ import org.jhotdraw.draw.Drawing;
 import org.jhotdraw.draw.Figure;
 import org.jhotdraw.draw.LineConnectionFigure;
 
-/**
- * DependencyFigure.
- *
- * @author Werner Randelshofer.
- * @version 1.0 18. Juni 2006 Created.
- */
+
 public class DependencyFigure extends LineConnectionFigure {
     /** Creates a new instance. */
     public DependencyFigure() {

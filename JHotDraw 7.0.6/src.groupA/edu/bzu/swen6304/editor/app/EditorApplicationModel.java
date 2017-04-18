@@ -63,24 +63,17 @@ public class EditorApplicationModel extends DefaultApplicationModel {
     
     private HashMap<String,Action> actions;
     
-    
-    //private DefaultDrawingEditor editor;
-
-   	private FigureFactory figureFactory;
-	private FigureMaker figureMaker;
+    private FigureMaker figureMaker;
    	
    	
     /** Creates a new instance. */
     public EditorApplicationModel() {
-    	figureFactory = new DefaultFigureFactory();
     	figureMaker = new FigureMaker();
-    }
-    
+    	}
    
 
     public void initApplication(Application a) {
         ResourceBundleUtil drawLabels = ResourceBundleUtil.getLAFBundle("org.jhotdraw.draw.Labels");
-        ResourceBundleUtil labels = ResourceBundleUtil.getLAFBundle("org.jhotdraw.samples.net.Labels");
         AbstractAction aa;
         
         putAction(ExportAction.ID, new ExportAction(a));
@@ -111,18 +104,10 @@ public class EditorApplicationModel extends DefaultApplicationModel {
         // AttributeKeys for the entitie sets
         HashMap<AttributeKey,Object> attributes;
         
-        ResourceBundleUtil labels = ResourceBundleUtil.getLAFBundle("org.jhotdraw.samples.net.Labels");
-        ResourceBundleUtil drawLabels = ResourceBundleUtil.getLAFBundle("org.jhotdraw.draw.Labels");
-        
-        tb.addSeparator();
+         tb.addSeparator();
         
         attributes = new HashMap<AttributeKey,Object>();
-    
-        attributes = new HashMap<AttributeKey,Object>();
-        
-        attributes = new HashMap<AttributeKey,Object>();
-      
-		// Add all the declared firures in FigureType enum
+    		// Add all the declared firures in FigureType enum
 		
         Collection<Action> menuActions = new LinkedList<Action>();
 		// Add separator

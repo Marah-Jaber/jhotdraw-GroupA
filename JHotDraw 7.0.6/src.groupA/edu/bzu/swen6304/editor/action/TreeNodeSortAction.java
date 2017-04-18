@@ -44,7 +44,7 @@ public class TreeNodeSortAction extends SortAction {
 
 		final LinkedList<Figure> figures = new LinkedList<Figure>(
 				view.getSelectedFigures());
-	//	groupFiguresAndApplySortByName(view, new GraphicalCompositeFigure(), figures);
+	
 		for(int i = 0 ; i < figures.size() ; i++) {
 			Figure figure = figures.get(i);
 			if(!(figure instanceof NodeFigure)) {
@@ -55,43 +55,7 @@ public class TreeNodeSortAction extends SortAction {
 
 	}
 
-	/*public void groupFiguresAndApplySortByName(DrawingView view,
-			CompositeFigure group, Collection<Figure> figures) {
-		  Collection<Figure> sorted = view.getDrawing().sort(figures);
-	        int index = view.getDrawing().indexOf(sorted.iterator().next());
-	        view.getDrawing().basicRemoveAll(figures);
-	        view.clearSelection();
-	        view.getDrawing().add(index, group);
-	        group.willChange();
-	        for (Figure f : sorted) {
-	            f.willChange();
-	            group.basicAdd(f);
-	        }
-	        
-	        group.changed();
-	        view.addToSelection(group);
-	        
-	        group.willChange();
-	        group.setLayouter(new VerticalLayouter());
-	        group.changed();
-	        
-	        List<Figure> children = new ArrayList<>(group.getChildren());
-	        
-	        getSortContext().sort(children);
-	        
-	        group.willChange();
-	        group.removeAllChildren();
-	        group.changed();
-	        
-	        group.willChange();
-	        for(Figure fig: children){
-	        	fig.willChange();
-	        	group.add(fig);
-	        }
-	        group.changed();
-	        
-	        
-	} */
+	
 	
 	@Override
 	public String getId() {
