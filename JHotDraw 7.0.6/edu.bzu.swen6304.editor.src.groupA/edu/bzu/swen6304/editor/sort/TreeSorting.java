@@ -1,7 +1,7 @@
 /**
  * 
  */
-package groupA.sort;
+package edu.bzu.swen6304.editor.sort;
 
 import java.util.List;
 

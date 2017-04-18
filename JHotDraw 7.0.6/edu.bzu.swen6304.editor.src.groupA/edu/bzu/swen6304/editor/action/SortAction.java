@@ -1,18 +1,14 @@
 /**
  * 
  */
-package groupA.action;
-
-import java.awt.event.ActionEvent;
-
+package edu.bzu.swen6304.editor.action;
 
 import org.jhotdraw.app.action.Actions;
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.action.AbstractSelectedAction;
-import org.jhotdraw.util.ResourceBundleUtil;
 
-import groupA.sort.SortStrategy;
-import groupA.sort.TreeSorting;
+import edu.bzu.swen6304.editor.sort.SortStrategy;
+import edu.bzu.swen6304.editor.sort.TreeSorting;
 
 
 public abstract class SortAction extends AbstractSelectedAction {

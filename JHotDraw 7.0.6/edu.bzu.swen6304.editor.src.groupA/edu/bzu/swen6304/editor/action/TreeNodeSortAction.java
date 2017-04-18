@@ -1,13 +1,14 @@
-package groupA.action;
+package edu.bzu.swen6304.editor.action;
 
 
 import java.util.LinkedList;
+
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.DrawingView;
 import org.jhotdraw.draw.Figure;
 
-import groupA.figure.NodeFigure;
-import groupA.sort.NodeSortStrategy;
+import edu.bzu.swen6304.editor.figure.NodeFigure;
+import edu.bzu.swen6304.editor.sort.NodeSortStrategy;
 
 public class TreeNodeSortAction extends SortAction {
 	private static final long serialVersionUID = 1L;

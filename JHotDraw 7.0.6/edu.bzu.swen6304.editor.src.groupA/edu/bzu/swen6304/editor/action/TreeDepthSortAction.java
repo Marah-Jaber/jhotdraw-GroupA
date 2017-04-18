@@ -1,12 +1,13 @@
-package groupA.action;
+package edu.bzu.swen6304.editor.action;
 
 import java.util.LinkedList;
+
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.DrawingView;
 import org.jhotdraw.draw.Figure;
 
-import groupA.figure.NodeFigure;
-import groupA.sort.DepthSortStrategy;
+import edu.bzu.swen6304.editor.figure.NodeFigure;
+import edu.bzu.swen6304.editor.sort.DepthSortStrategy;
 
 
 public class TreeDepthSortAction extends SortAction {

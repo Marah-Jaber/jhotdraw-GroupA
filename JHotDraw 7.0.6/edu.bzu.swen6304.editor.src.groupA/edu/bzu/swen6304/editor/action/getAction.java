@@ -1,12 +1,11 @@
 /**
  * 
  */
-package groupA.action;
+package edu.bzu.swen6304.editor.action;
 
 import org.jhotdraw.app.action.Actions;
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.action.AbstractSelectedAction;
-import org.jhotdraw.util.ResourceBundleUtil;
 
 
 

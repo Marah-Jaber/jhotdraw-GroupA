@@ -1,6 +1,4 @@
-package groupA.figure;
-
-import org.jhotdraw.draw.Figure;
+package edu.bzu.swen6304.editor.figure;
 
 public class FigureMaker {
 

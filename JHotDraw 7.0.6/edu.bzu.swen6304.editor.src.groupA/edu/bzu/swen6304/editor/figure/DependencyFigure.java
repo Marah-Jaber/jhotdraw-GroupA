@@ -1,13 +1,21 @@
 
  
-package groupA.figure;
+package edu.bzu.swen6304.editor.figure;
 
-import java.awt.*;
-import org.jhotdraw.samples.*;
-import java.beans.*;
-import static org.jhotdraw.draw.AttributeKeys.*;
-import org.jhotdraw.draw.*;
-import org.jhotdraw.xml.*;
+import static org.jhotdraw.draw.AttributeKeys.END_DECORATION;
+import static org.jhotdraw.draw.AttributeKeys.FONT_ITALIC;
+import static org.jhotdraw.draw.AttributeKeys.FONT_UNDERLINED;
+import static org.jhotdraw.draw.AttributeKeys.START_DECORATION;
+import static org.jhotdraw.draw.AttributeKeys.STROKE_COLOR;
+import static org.jhotdraw.draw.AttributeKeys.STROKE_DASHES;
+import static org.jhotdraw.draw.AttributeKeys.STROKE_WIDTH;
+
+import java.awt.Color;
+
+import org.jhotdraw.draw.ArrowTip;
+import org.jhotdraw.draw.Drawing;
+import org.jhotdraw.draw.Figure;
+import org.jhotdraw.draw.LineConnectionFigure;
 
 /**
  * DependencyFigure.

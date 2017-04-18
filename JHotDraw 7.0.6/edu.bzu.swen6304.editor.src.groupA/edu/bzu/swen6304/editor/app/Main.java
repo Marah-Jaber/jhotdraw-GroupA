@@ -1,8 +1,8 @@
-package groupA.app;
+package edu.bzu.swen6304.editor.app;
 
-import javax.swing.*;
-import org.jhotdraw.app.*;
-import org.jhotdraw.samples.draw.DrawApplicationModel;
+import org.jhotdraw.app.Application;
+import org.jhotdraw.app.DefaultOSXApplication;
+import org.jhotdraw.app.DefaultSDIApplication;
 
 public class Main {
 
@@ -26,7 +26,7 @@ public class Main {
 	        model.setName("JHotDraw PlasmaDraw");
 	        model.setVersion("0.5");
 	        model.setCopyright("Copyright Group A.");
-	        model.setProjectClassName("groupA.app.EditorProject");
+	        model.setProjectClassName("edu.bzu.swen6304.editor.app.EditorProject");
 	        app.setModel(model);
 	        app.launch(args);
 	    }

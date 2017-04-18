@@ -1,4 +1,4 @@
-package groupA.sort;
+package edu.bzu.swen6304.editor.sort;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 import org.jhotdraw.draw.Figure;
 
-import groupA.figure.NodeFigure;
+import edu.bzu.swen6304.editor.figure.NodeFigure;
 
 /**
  * This class is to implement the tree nodes based on their levels. This is a

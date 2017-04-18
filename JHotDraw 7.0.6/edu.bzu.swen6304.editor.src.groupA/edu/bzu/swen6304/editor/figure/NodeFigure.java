@@ -1,30 +1,17 @@
-package groupA.figure;
+package edu.bzu.swen6304.editor.figure;
 
-import static org.jhotdraw.draw.AttributeKeys.END_DECORATION;
 import static org.jhotdraw.draw.AttributeKeys.FONT_BOLD;
-import static org.jhotdraw.draw.AttributeKeys.FONT_ITALIC;
-import static org.jhotdraw.draw.AttributeKeys.FONT_UNDERLINED;
-import static org.jhotdraw.draw.AttributeKeys.START_DECORATION;
-import static org.jhotdraw.draw.AttributeKeys.STROKE_COLOR;
-import static org.jhotdraw.draw.AttributeKeys.STROKE_DASHES;
-import static org.jhotdraw.draw.AttributeKeys.STROKE_WIDTH;
-import static org.jhotdraw.draw.AttributeKeys.TEXT_COLOR;
 
-import java.awt.Color;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import org.jhotdraw.draw.ArrowTip;
-import org.jhotdraw.draw.AttributeKey;
-import org.jhotdraw.draw.AttributeKeys;
 import org.jhotdraw.draw.ConnectionHandle;
 import org.jhotdraw.draw.EllipseFigure;
 import org.jhotdraw.draw.Figure;

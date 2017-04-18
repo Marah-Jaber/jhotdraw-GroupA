@@ -1,14 +1,9 @@
 
-package groupA.figure;
+package edu.bzu.swen6304.editor.figure;
 
-import java.awt.*;
-import org.jhotdraw.samples.*;
-import java.beans.*;
-import java.util.HashMap;
+import static org.jhotdraw.draw.AttributeKeys.FONT_BOLD;
 
-import static org.jhotdraw.draw.AttributeKeys.*;
-import org.jhotdraw.draw.*;
-import org.jhotdraw.xml.*;
+import org.jhotdraw.draw.TextFigure;
 
 public class Text_Figure extends TextFigure implements styleFigure{
     /** Creates a new instance. */

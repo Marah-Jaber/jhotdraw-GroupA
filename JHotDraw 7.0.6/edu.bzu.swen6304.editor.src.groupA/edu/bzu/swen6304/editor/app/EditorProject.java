@@ -1,5 +1,5 @@
 
-package groupA.app;
+package edu.bzu.swen6304.editor.app;
 
 import java.util.prefs.*;
 import org.jhotdraw.gui.*;

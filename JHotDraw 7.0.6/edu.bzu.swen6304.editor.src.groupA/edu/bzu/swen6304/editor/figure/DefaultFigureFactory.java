@@ -1,13 +1,7 @@
 /**
  * 
  */
-package groupA.figure;
-
-import org.jhotdraw.geom.*;
-import org.jhotdraw.samples.net.figures.*;
-import java.util.*;
-import org.jhotdraw.draw.*;
-import org.jhotdraw.xml.*;
+package edu.bzu.swen6304.editor.figure;
 
 public class DefaultFigureFactory implements FigureFactory {
 	

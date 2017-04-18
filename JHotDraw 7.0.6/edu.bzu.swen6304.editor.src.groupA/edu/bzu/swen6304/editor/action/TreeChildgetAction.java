@@ -1,11 +1,11 @@
-package groupA.action;
+package edu.bzu.swen6304.editor.action;
 
 
 import org.jhotdraw.draw.DrawingEditor;
 import org.jhotdraw.draw.DrawingView;
 import org.jhotdraw.draw.Figure;
 
-import groupA.figure.NodeFigure;
+import edu.bzu.swen6304.editor.figure.NodeFigure;
 
 
 
